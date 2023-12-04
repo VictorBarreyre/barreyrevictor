@@ -1,16 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import './App.css'
+import Header from './components/Header'
+import Footer from './components/Footer';
+import Desk from './components/root/Desk';
 
 function App() {
 
-
   return (
-    <>
-      <h3>I'll be back</h3>
- 
-    </>
+    <div className='app'>
+      <Router>
+        <div className='flex-top-down'>
+          <Header />
+          <Routes>
+          <Route path="/" element={<Desk />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </div>
   )
 }
 
