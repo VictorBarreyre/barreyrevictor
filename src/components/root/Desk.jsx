@@ -13,7 +13,7 @@ const Desk = () => {
     return (
       <>
         {Object.keys(windows).map(key => (
-         key === 'settings' ? <SettingsWindow key={key} windowKey={key} /> : <Window key={key} windowKey={key} />
+         key === 'settings' ? <SettingsWindow key={key} windowKey={key} language={language}  /> : <Window key={key} windowKey={key} />
         ))}
       </>
     );

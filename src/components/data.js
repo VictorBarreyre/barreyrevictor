@@ -12,7 +12,7 @@ const data = {
 fr:{ 
         Header: {
             title: 'Barreyrevictor',
-            go: 'Foutre le camps ',
+            go: 'Foutre le camp',
         },
 
         Button: {
@@ -34,7 +34,8 @@ fr:{
             settings: {
                 icon: sett,
                 title: 'Réglages',
-                content: 'Contenu pour Archives',
+                contentDarkmode: 'Activer le darkmode',
+                contentCookies: 'Activer le darkmode',
             },
         },
     },
@@ -65,7 +66,8 @@ fr:{
             settings: {
                 icon: sett,
                 title: 'Settings',
-                content: 'Content for Archives',
+                contentDarkmode: 'Content for Archives',
+                contentCookies: 'Content for Archives',
             },
         },
     },
@@ -95,7 +97,8 @@ fr:{
             settings: {
                 icon: sett,
                 title: '設定',
-                content: 'アーカイブの内容',
+                contentDarkmode: 'アーカイブの内容',
+                contentCookies: 'アーカイブの内容',
             },
         },
     },
@@ -126,7 +129,8 @@ fr:{
             settings: {
                 icon: sett, 
                 title:'Настройки',
-                content: 'Контент для раздела "Архивы"',
+                contentDarkmode: 'Контент для раздела "Архивы"',
+                contentCookies: 'Контент для раздела "Архивы"',
             },
         },
     },
@@ -155,7 +159,8 @@ fr:{
             settings: {
                 icon: sett, 
                 title: '设置',
-                content: '档案的内容',
+                contentDarkmode: '档案的内容',
+                contentCookies: '档案的内容',
             },
         },
     },

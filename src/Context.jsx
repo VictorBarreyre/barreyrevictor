@@ -8,6 +8,9 @@ export const WindowProvider = ({ children }) => {
   const [openWindows, setOpenWindows] = useState({});
   const [windowData, setWindowData] = useState({});
   const [language, setLanguage] = useState('fr');
+  const [isDarkMode, setIsDarkmode] = useState(false)
+  const [AreCookiesAccepted, setAreCookiesAccepted] = useState(false)
+
 
   const toggleWindow = (windowKey) => {
     setOpenWindows(prevWindows => ({
@@ -15,7 +18,7 @@ export const WindowProvider = ({ children }) => {
       [windowKey]: !prevWindows[windowKey]
 
     }));
-    console.log(windowKey)
+
   };
 
   const setWindowContent = (windowKey, data) => {
@@ -26,16 +29,36 @@ export const WindowProvider = ({ children }) => {
 
   };
 
+
   const changeLanguage = (language) => {
     setLanguage(language);
-  
+    const buttonData = data[language].Button;
+    setWindowData(buttonData);
   };
 
-  
+  const toggleDarkMode = () => {
+    setIsDarkmode(!isDarkMode)
+  }
+
+  const toggleCookies = () => {
+    setAreCookiesAccepted(!AreCookiesAccepted)
+  }
+
 
 
   return (
-    <WindowContext.Provider value={{ openWindows, toggleWindow, windowData, setWindowContent, language, changeLanguage }}>
+    <WindowContext.Provider value={{
+      openWindows,
+      toggleWindow,
+      windowData,
+      setWindowContent,
+      language,
+      changeLanguage,
+      isDarkMode,
+      toggleDarkMode,
+      AreCookiesAccepted,
+      toggleCookies
+    }}>
       {children}
     </WindowContext.Provider>
   );

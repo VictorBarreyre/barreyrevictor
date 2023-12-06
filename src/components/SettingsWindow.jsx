@@ -1,4 +1,4 @@
-import React, { useState,useEffect,useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import close from '../assets/cross.svg'
 import shave from 'shave';
 import { useWindowContext } from '../Context';
@@ -6,10 +6,9 @@ import { useWindowContext } from '../Context';
 const SettingsWindow = ({ windowKey }) => {
 
     const initialPosition = () => {
-        // Assurez-vous que la fenêtre n'apparaisse pas hors de l'écran
-        const maxHeight = window.innerHeight - 200; // 150 est la hauteur initiale de la fenêtre
-        const maxWidth = window.innerWidth - 300; // 300 est la largeur initiale de la fenêtre
-       
+
+        const maxHeight = window.innerHeight - 200;
+        const maxWidth = window.innerWidth - 300;
         return {
             x: Math.floor(Math.random() * Math.max(maxWidth, 1)),
             y: Math.floor(Math.random() * Math.max(maxHeight, 1))
@@ -17,29 +16,42 @@ const SettingsWindow = ({ windowKey }) => {
     };
 
 
-    const { openWindows, windowData, toggleWindow,changeLanguage } = useWindowContext();
+    const { openWindows, windowData, toggleWindow, changeLanguage, isDarkMode, toggleDarkMode, AreCookiesAccepted,
+        toggleCookies } = useWindowContext();
     const [windowContent, setWindowContent] = useState('');
     const [isDragging, setIsDragging] = useState(false);
     const [isResizing, setIsResizing] = useState(false);
     const [position, setPosition] = useState(initialPosition());
-    const [size, setSize] = useState({ width: 300, height: 150 }); 
+    const [size, setSize] = useState({ width: 300, height: 150 });
     const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
     const [resizeStart, setResizeStart] = useState({ x: 0, y: 0 });
-    const [language, setLanguage] = useState('');
-    
+    const [language, setLanguage] = useState(windowData[windowKey]?.language);
+    let highestZIndex = 10;
+
     const textRef = useRef(null);
     const titleHeight = 50;
 
-   
     useEffect(() => {
         if (windowData[windowKey]) {
             setWindowContent(windowData[windowKey].content);
         }
-    }, [windowData, windowKey, language]);
+    }, [windowData, windowKey]);
 
-    
+
     const handleCloseClick = () => {
-        toggleWindow(windowKey); 
+        toggleWindow(windowKey);
+    };
+
+
+    const resetAllWindowsZIndex = () => {
+        const allWindows = document.querySelectorAll('.window');
+        allWindows.forEach(window => {
+            window.style.zIndex = 1;
+        });
+    };
+
+    const setZIndexForWindow = (windowElement, zIndex) => {
+        windowElement.style.zIndex = zIndex;
     };
 
     const onMouseDown = (e) => {
@@ -54,6 +66,13 @@ const SettingsWindow = ({ windowKey }) => {
                 y: e.clientY - position.y
             });
             setIsDragging(true);
+
+            resetAllWindowsZIndex();
+
+            const currentWindow = e.currentTarget; // ou une autre méthode pour obtenir l'élément de fenêtre actuel
+            setZIndexForWindow(currentWindow, highestZIndex);
+
+            highestZIndex++;
         }
     };
 
@@ -96,22 +115,20 @@ const SettingsWindow = ({ windowKey }) => {
             shave(textRef.current, textHeight);
         }
     }, [size, titleHeight]);
-    
-    
-    
-    
+
+
     const handleLanguageChange = (e) => {
-        const newLanguage = e.target.value;
-        setLanguage(newLanguage);
-        changeLanguage(newLanguage)
+        const selectedLanguage = e.target.value;
+        setLanguage(selectedLanguage);
+        changeLanguage(selectedLanguage);
     };
-    
-    
+
+
     if (!openWindows[windowKey]) {
         return null;
     }
 
-    
+
 
     return (
         <div className='window' onMouseDown={onMouseDown} style={{ left: `${position.x}px`, top: `${position.y}px`, width: `${size.width}px`, height: `${size.height}px`, position: 'absolute' }}>
@@ -120,16 +137,37 @@ const SettingsWindow = ({ windowKey }) => {
                 <h2 className='windowh2'>{windowData[windowKey]?.title}</h2>
                 <img className='footer-img-cross' src={close} alt="Cross" onClick={handleCloseClick} />
             </div>
+
             <div className='flex-window-body' style={{ flex: 1 }}>
-            <div className='settings-content'>
-                <select value={language} onChange={handleLanguageChange}>
-                    <option value="fr">Français</option>
-                    <option value="en">English</option>
-                    <option value="jp">日本語 (Japonais)</option>
-                    <option value="ru">Русский (Russe)</option>
-                    <option value="cn">中文 (Chinois)</option>
-                </select>
-            </div>
+
+                <div className='flex-settings-content'>
+                    <div className='flex-settings ip'>
+                        <p className='setting-p'>Votre Adresse Ip est : 124.1983.45.98 </p>
+                    </div>
+                    <div className='flex-settings language'>
+                    <select value={language} onChange={handleLanguageChange}>
+                        <option value="fr">Français</option>
+                        <option value="en">English</option>
+                        <option value="jp">日本語 (Japonais)</option>
+                        <option value="ru">Русский (Russe)</option>
+                        <option value="cn">中文 (Chinois)</option>
+                    </select>
+                    </div>
+                    <div className='flex-settings darkmode'>
+                        <p className='setting-p'>{windowData[windowKey]?.contentDarkmode} </p>
+                        <label className="switch">
+                            <input type="checkbox" checked={isDarkMode} onChange={toggleDarkMode} />
+                            <span className="slider round"></span>
+                        </label>
+                    </div>
+                    <div className='flex-settings cookies'>
+                        <p className='setting-p'>{windowData[windowKey]?.contentCookies} </p>
+                        <label className="switch">
+                            <input type="checkbox" checked={AreCookiesAccepted} onChange={toggleCookies} />
+                            <span className="slider round"></span>
+                        </label>
+                    </div>
+                </div>
             </div>
             <div className='resize-handle' />
         </div>

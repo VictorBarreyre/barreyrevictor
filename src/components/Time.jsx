@@ -6,6 +6,13 @@ function Time() {
   const { language } = useWindowContext();
 
   useEffect(() => {
+
+    const handleResize = () => {
+      setCurrentDateTime(new Date()); // Force le re-rendu
+    };
+  
+    window.addEventListener('resize', handleResize);
+
     const timer = setInterval(() => {
       setCurrentDateTime(new Date());
     }, 1000);
@@ -14,7 +21,11 @@ function Time() {
   }, []);
 
   const formatDate = (date) => {
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+
+    const fullOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    const mobileOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    const options = window.innerWidth <= 768 ? mobileOptions : fullOptions; 
+
     let locale;
 
     switch (language) {
