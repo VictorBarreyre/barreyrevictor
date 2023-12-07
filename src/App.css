@@ -334,4 +334,9 @@ input:checked+.slider:before {
   font-size: 12px;
 }
 
+.btn-modal {
+  padding: 4px 15px 5px 15px;
+  font-size: 12px;
+}
+
 }
