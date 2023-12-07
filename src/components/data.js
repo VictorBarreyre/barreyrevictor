@@ -34,6 +34,7 @@ fr:{
             settings: {
                 icon: sett,
                 title: 'Réglages',
+                contentIP: 'Votre adresse IP est:',
                 contentDarkmode: 'Activer le darkmode',
                 contentCookies: 'Accepter les cookies',
                 contentCSS: 'Désactiver le CSS',
@@ -67,8 +68,10 @@ fr:{
             settings: {
                 icon: sett,
                 title: 'Settings',
+                contentIP: 'Your IP is:',
                 contentDarkmode: 'Content for Archives',
                 contentCookies: 'Content for Archives',
+                contentCSS: ' Disable CSS',
             },
         },
     },
@@ -98,8 +101,10 @@ fr:{
             settings: {
                 icon: sett,
                 title: '設定',
+                contentIP: 'あなたのIPアドレスは',
                 contentDarkmode: 'アーカイブの内容',
                 contentCookies: 'アーカイブの内容',
+                contentCSS: ' CSSを無効にする',
             },
         },
     },
@@ -130,8 +135,10 @@ fr:{
             settings: {
                 icon: sett, 
                 title:'Настройки',
+                contentIP: 'Ваш IP-адрес',
                 contentDarkmode: 'Контент для раздела "Архивы"',
                 contentCookies: 'Контент для раздела "Архивы"',
+                contentCSS: 'Отключить CSS',
             },
         },
     },
@@ -160,8 +167,10 @@ fr:{
             settings: {
                 icon: sett, 
                 title: '设置',
+                contentIP: '您的IP地址是',
                 contentDarkmode: '档案的内容',
                 contentCookies: '档案的内容',
+                contentCSS: '禁用CSS',
             },
         },
     },

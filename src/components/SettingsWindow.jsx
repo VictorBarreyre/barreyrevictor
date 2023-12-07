@@ -169,7 +169,7 @@ const SettingsWindow = ({ windowKey }) => {
 
                 <div className='flex-settings-content'>
                     <div className='flex-settings ip'>
-                        <p className='setting-p'>Votre Adresse Ip est : 124.1983.45.98 </p>
+                        <p className='setting-p'>{windowData[windowKey]?.contentIP} </p>
                     </div>
                     <div className='flex-settings lang'>
                         <select value={language} onChange={handleLanguageChange}>
