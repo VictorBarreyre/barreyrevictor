@@ -10,6 +10,7 @@ export const WindowProvider = ({ children }) => {
   const [language, setLanguage] = useState('fr');
   const [isDarkMode, setIsDarkmode] = useState(false)
   const [AreCookiesAccepted, setAreCookiesAccepted] = useState(false)
+  const [isCssSet, setIsCSSSet] = useState(true)
 
 
   const toggleWindow = (windowKey) => {
@@ -44,6 +45,10 @@ export const WindowProvider = ({ children }) => {
     setAreCookiesAccepted(!AreCookiesAccepted)
   }
 
+  const switchCss = () => {
+    setIsCSSSet(!isCssSet)
+  }
+
 
 
   return (
@@ -57,7 +62,9 @@ export const WindowProvider = ({ children }) => {
       isDarkMode,
       toggleDarkMode,
       AreCookiesAccepted,
-      toggleCookies
+      toggleCookies,
+      isCssSet,
+      switchCss
     }}>
       {children}
     </WindowContext.Provider>

@@ -52,9 +52,9 @@ a {
   color: #000000;
   text-decoration: inherit;
   border-radius: 20px;
-  background-color: rgba(234, 236, 231, 0.1);
-  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
-  padding: 4px 20px 4px 20px;
+  background: var(--nue-white-1, #F0F0F3);
+box-shadow: 1.5px 1.5px 3px 0px rgba(174, 174, 192, 0.40), -1px -1px 3px 0px #FFF;
+  padding: 4px 20px 5px 20px;
 }
 
 
@@ -66,15 +66,18 @@ button {
   text-decoration: inherit;
   border: none;
   font-size: 12px;
-  background-color: white;
-  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
-  padding: 4px 20px 4px 20px;
   border-radius: 20px;
-}
+  background: #F0F0F3;
+
+/* neuphormism */
+  box-shadow: 2.179px 2.179px 6.537px 0px rgba(174, 174, 192, 0.40), -2.179px -2.179px 6.537px 0px #FFF;
+  padding: 4px 20px 5px 20px;
+  border-radius: 20px;
+} 
 
 .active-link {
   border-radius: 20px;
-  background: var(--wgrey, #ffffff);
+  background: #F0F0F3;
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10) inset;
 }
 
@@ -84,7 +87,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #ffffff;
+  background: #F0F0F3;
   overflow-y: hidden;
   overflow-x: hidden;
 }
@@ -136,4 +139,6 @@ line-height: 1.3rem;
     overflow-y: hidden;
     overflow-x: hidden;
   }
+
+  
 }
