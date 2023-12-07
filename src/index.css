@@ -142,10 +142,12 @@ line-height: 1.3rem;
 
 a{ 
   padding: 4px 10px 5px 10px;
+  font-size: 10px;
 }
 
 .button{ 
   padding: 4px 10px 5px 10px;
+  font-size: 10px;
 }
 
   
