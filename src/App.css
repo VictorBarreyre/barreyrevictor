@@ -119,6 +119,7 @@
   align-items: center;
   margin-right: 1vw;
   background-color: rgba(234, 236, 231, 0.1);
+  
 }
 
 .active {
@@ -316,6 +317,14 @@ input:checked+.slider:before {
     width: 85vw;
   }
 
-  .footer-img{display: none;}
+  .footer-img{
+    display: none;
+  }
+
+  .left-down{
+    padding: 4px 10px 5px 10px;
+  font-size: 10px;
+}
+  
 
 }
