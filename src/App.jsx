@@ -13,6 +13,18 @@ function App() {
 
   const {isCssSet} = useWindowContext();
   const [consentGiven, setConsentGiven] = useState(false);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowHeight(window.innerHeight);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Nettoyer l'event listener quand le composant est démonté ou redimensionné
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   
   useEffect(() => {
@@ -32,7 +44,7 @@ function App() {
       <div className='app'>
         {!consentGiven && <ConsentModal onConsentChange={handleConsentChange} />}
         <Router>
-          <div className='flex-top-down'>
+          <div className='flex-top-down'style={{ height: `${windowHeight}px` }}>
             <Header />
             <Routes>
               <Route path="/" element={<Desk />} />

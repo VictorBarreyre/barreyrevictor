@@ -49,7 +49,7 @@ li{
   position: fixed;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 102vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,10 +99,7 @@ li{
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.app {
-  min-width: 100vw;
-  min-height: 100vh;
-}
+
 
 
 .flex-top-down {
@@ -110,7 +107,7 @@ li{
   justify-content: space-between;
   flex-direction: column;
   padding: 1rem;
-  height: 54rem;
+  height: 96%;
 }
 
 .flex-up {

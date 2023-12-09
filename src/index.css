@@ -25,6 +25,11 @@
   font-display: swap;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 :root {
   font-family: SF Pro Display, Avenir, Helvetica, Arial, sans-serif;
@@ -42,6 +47,8 @@
 .app{
   overflow-y: hidden;
   overflow-x: hidden;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 
 a {
@@ -57,6 +64,9 @@ a {
   padding: 4px 20px 5px 20px;
 }
 
+.info-sup{
+  padding: 1rem;
+}
 
 button {
   font-family: 'SF Pro Display';
