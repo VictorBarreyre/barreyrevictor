@@ -1,6 +1,6 @@
 import React from 'react';
 import { useWindowContext } from '../Context';
-import data from './data.js';
+import data from './data.jsx';
 
 
 const Footer = () => {
@@ -13,9 +13,18 @@ const Footer = () => {
     toggleWindow(windowKey);
   };
 
-    
+  const languageNames = {
+    fr: 'Français',
+    en: 'English',
+    jp: '日本語 (Japonais)',
+    ru: 'Русский (Russe)',
+    cn: '中文 (Chinois)'
+  };
+
+
   return (
-    
+    <div className='info-sup'>
+     
       <div className='flex-down-left'>
         {Object.keys(Button).map((id) => (
           <button
@@ -28,7 +37,8 @@ const Footer = () => {
           </button>
         ))}
       </div>
- 
+      
+    </div>
   );
 };
 

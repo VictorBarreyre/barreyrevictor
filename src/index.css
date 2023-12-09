@@ -125,30 +125,3 @@ line-height: 1.3rem;
 
 }
 
-@media (max-width: 768px) { /* Pour les appareils mobiles */
-  .flex-top-down {
-      height: 96vh;
-  }
-
-  .app{
-    overflow-y: hidden;
-    overflow-x: hidden;
-  }
-
-  body {
-    overflow-y: hidden;
-    overflow-x: hidden;
-  }
-
-a{ 
-  padding: 4px 15px 5px 15px;
-  font-size: 12px;
-}
-
-.button{ 
-  padding: 4px 15px 5px 15px;
-  font-size: 12px;
-}
-
-  
-}

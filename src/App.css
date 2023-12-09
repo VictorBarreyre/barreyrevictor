@@ -1,9 +1,48 @@
+
+.disable-css * {
+  all: unset; /* 'all: unset' peut être utilisé pour annuler tous les styles hérités et natifs */
+}
+
+
 #root {
-  text-align: center;
   overflow-y: hidden;
   overflow-x: hidden;
 }
 
+
+ul{
+  padding-left: 2rem;
+}
+
+li{
+  margin-bottom: 0.4rem;
+}
+
+.flex-logo{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    position: fixed;
+    margin-top: 5rem;
+    
+}
+
+.flexsinglelogo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+
+.logo-desk{
+  box-shadow: none;
+  background: none;
+}
+
+
+.os{font-size:10px}
 
 
 .modal {
@@ -77,8 +116,9 @@
 .flex-up {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 2vh;
+  padding-bottom: 1rem;
   align-items: center;
+  border-bottom: 1px solid #e3e3e3;
 }
 
 .time {
@@ -93,8 +133,17 @@
 }
 
 
+.sub-info-sup{
+  display: flex;
+  flex-direction: column;
+  padding-right: 2.5rem;
+  padding-top: 1rem;
+}
+
 .flex-down-left {
   display: flex;
+  border-top: 1px solid #e3e3e3;
+  padding-top: 1rem;
 }
 
 .flex-down-left>button:last-child {
@@ -165,7 +214,7 @@
   align-items: center;
   gap: 10px;
   align-self: stretch;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #e3e3e3;
   padding-bottom: 0.5rem;
 }
 
@@ -290,7 +339,6 @@ input:checked+.slider:before {
   margin-right: 0.2rem;
 }
 
-/* Style arrondi pour les sliders */
 .slider.round {
   border-radius: 34px;
 }
@@ -311,7 +359,70 @@ input:checked+.slider:before {
   margin-left: 0.3rem;
 }
 
+.default-link{
+  box-shadow: none;
+    padding: 0;
+}
+
+
+.nocss {
+  display: inline-block;
+  font-family: Times, "Times New Roman", serif;
+  color: black;
+  background-color: white;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.content-nocss{
+  width: fit-content;
+  margin-top: 5rem;
+  margin-left: 15rem;
+}
+
+.nocss a{
+  font-family: Times, "Times New Roman", serif;
+  background: none;
+  all: unset;
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #0000EE;
+}
+
+.nocss h1 {
+  font-size: 2.2rem;
+}
+
+.nocss h2 {
+  display: inline-block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.nocss p {
+  line-height: 1.4;
+    font-size: 16px;
+}
+
+.nocss div {
+  margin-bottom: 1em;
+}
+
+.sub-p{
+  font-size: 10px;
+  font-weight: 200;
+  margin-left: 2rem;
+  margin-top: 0.5rem;
+}
+
+
 @media (max-width: 768px) {
+
+  
 
   .modal-content {
     width: 85vw;

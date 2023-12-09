@@ -35,8 +35,8 @@ const SettingsWindow = ({ windowKey }) => {
     const [resizeStart, setResizeStart] = useState({ x: 0, y: 0 });
     const [language, setLanguage] = useState(windowData[windowKey]?.language);
     let highestZIndex = 10;
-    
-    
+
+
     const textRef = useRef(null);
     const titleHeight = 50;
 
@@ -164,13 +164,9 @@ const SettingsWindow = ({ windowKey }) => {
                 <h2 className='windowh2'>{windowData[windowKey]?.title}</h2>
                 <img className='footer-img-cross' src={close} alt="Cross" onClick={handleCloseClick} />
             </div>
-
             <div className='flex-window-body' style={{ flex: 1 }}>
-
                 <div className='flex-settings-content'>
-                    <div className='flex-settings ip'>
-                        <p className='setting-p'>{windowData[windowKey]?.contentIP} </p>
-                    </div>
+                
                     <div className='flex-settings lang'>
                         <select value={language} onChange={handleLanguageChange}>
                             <option value="fr">Français</option>
@@ -195,7 +191,7 @@ const SettingsWindow = ({ windowKey }) => {
                         </label>
                     </div>
 
-                    <div className='flex-settings cookies'>
+                    <div className='flex-settings css'>
                         <p className='setting-p'>{windowData[windowKey]?.contentCSS} </p>
                         <label className="switch">
                             <input type="checkbox" checked={isCssSet} onChange={switchCss} />

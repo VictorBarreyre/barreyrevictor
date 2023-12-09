@@ -9,9 +9,8 @@ const Window = ({ windowKey }) => {
 
 
     const initialPosition = () => {
-        // Assurez-vous que la fenêtre n'apparaisse pas hors de l'écran
-        const maxHeight = window.innerHeight - 200; // 150 est la hauteur initiale de la fenêtre
-        const maxWidth = window.innerWidth - 300; // 300 est la largeur initiale de la fenêtre
+        const maxHeight = window.innerHeight - 200; 
+        const maxWidth = window.innerWidth - 300; 
 
         return {
             x: Math.floor(Math.random() * Math.max(maxWidth, 1)),
@@ -131,11 +130,12 @@ const Window = ({ windowKey }) => {
     }, [onMove, onEnd]);
 
     useEffect(() => {
-        if (textRef.current) {
-            const textHeight = size.height - titleHeight;
-            shave(textRef.current, textHeight);
+        if (textRef.current && typeof windowContent === 'string') {
+          const textHeight = size.height - titleHeight;
+          shave(textRef.current, textHeight);
         }
-    }, [size, titleHeight]);
+      }, [size, titleHeight, windowContent]);
+      
 
 
     const onClick = () => {

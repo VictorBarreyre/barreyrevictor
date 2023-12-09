@@ -9,10 +9,16 @@ import sett from '../assets/sett.svg'
 
 const data = {
 
-fr:{ 
+    fr: {
         Header: {
             title: 'Barreyrevictor',
             go: 'Foutre le camp',
+        },
+
+        Desk: {
+            window: 'Passer sur Vr98',
+            mac: 'Passer sur Var OS 9',
+            tux: 'Passer sur Linux',
         },
 
         Button: {
@@ -29,12 +35,23 @@ fr:{
             archives: {
                 icon: folder,
                 title: 'Archives',
-                content: 'Contenu pour Archives',
+                content: (
+                <ul>
+                    <li><a class='default-link' href='https://www.elle.fr/'>ELLE</a></li>
+                    <li><a class='default-link' href='https://www.elle.fr/'>ELLE App</a></li>
+                    <li><a class='default-link' href='https://www.elle.fr/'>Digitalinkers</a></li>
+                    <li><a class='default-link' href='https://www.elle.fr/'>Les Inrocks</a></li>
+                    <li><a class='default-link' href='https://www.elle.fr/'>Entreprise Musique</a></li>
+                    <li><a class='default-link' href='https://www.elle.fr/'>Orthosmile</a></li>
+                    <li><a class='default-link' href='https://www.elle.fr/'>Candide</a></li>
+                    <li><a class='default-link' href='https://www.elle.fr/'>Argentik</a></li>
+                </ul>),
             },
             settings: {
                 icon: sett,
                 title: 'Réglages',
-                contentIP: 'Votre adresse IP est:',
+                contentIP: 'Votre adresse IP est :',
+                contentLang: 'Le site est configuré en :',
                 contentDarkmode: 'Activer le darkmode',
                 contentCookies: 'Accepter les cookies',
                 contentCSS: 'Désactiver le CSS',
@@ -43,10 +60,16 @@ fr:{
     },
 
 
-    en:{ 
+    en: {
         Header: {
             title: 'Barreyrevictor',
             go: 'Go out',
+        },
+
+        Desk: {
+            window: 'Switch to Vr98',
+            mac: 'Switch to  Var OS 9',
+            tux: 'Linux coming soon',
         },
 
         Button: {
@@ -68,7 +91,8 @@ fr:{
             settings: {
                 icon: sett,
                 title: 'Settings',
-                contentIP: 'Your IP is:',
+                contentIP: 'Your IP is :',
+                contentLang: 'The website is configured in :',
                 contentDarkmode: 'Content for Archives',
                 contentCookies: 'Content for Archives',
                 contentCSS: ' Disable CSS',
@@ -76,10 +100,16 @@ fr:{
         },
     },
 
-    jp:{ 
+    jp: {
         Header: {
             title: 'バレイレヴィクター',
             go: '出る',
+        },
+
+        Desk: {
+            window: 'Vr98に切り替える',
+            mac: 'Var OS 9に切り替える',
+            tux: ' まもなくLinuxが利用可能 ',
         },
 
         Button: {
@@ -101,7 +131,8 @@ fr:{
             settings: {
                 icon: sett,
                 title: '設定',
-                contentIP: 'あなたのIPアドレスは',
+                contentIP: 'あなたのIPアドレスは :',
+                contentLang: 'ウェブサイトは以下の言語で設定されています :',
                 contentDarkmode: 'アーカイブの内容',
                 contentCookies: 'アーカイブの内容',
                 contentCSS: ' CSSを無効にする',
@@ -115,27 +146,34 @@ fr:{
             title: 'Баррейревиктор',
             go: 'Выйти',
         },
-    
+
+        Desk: {
+            window: 'Переключиться на Vr98',
+            mac: 'Переключиться на Var OS 9',
+            tux: 'Скоро будет доступен Linux',
+        },
+
         Button: {
             about: {
-                icon: me, 
+                icon: me,
                 title: 'Обо мне',
                 content: 'Контент для раздела "Обо мне"',
             },
             contact: {
-                icon: contact, 
+                icon: contact,
                 title: 'Контакт',
                 content: 'Контент для раздела "Контакт"',
             },
             archives: {
-                icon: folder, 
+                icon: folder,
                 title: 'Архивы',
                 content: 'Контент для раздела "Архивы"',
             },
             settings: {
-                icon: sett, 
-                title:'Настройки',
-                contentIP: 'Ваш IP-адрес',
+                icon: sett,
+                title: 'Настройки',
+                contentIP: 'Ваш IP-адрес :',
+                contentLang: 'Веб-сайт настроен на :',
                 contentDarkmode: 'Контент для раздела "Архивы"',
                 contentCookies: 'Контент для раздела "Архивы"',
                 contentCSS: 'Отключить CSS',
@@ -147,34 +185,41 @@ fr:{
             title: '巴雷雷维克托',
             go: '退出',
         },
-    
+
+        Desk: {
+            window: '切换到Vr98',
+            mac: '切换到Var OS 9',
+            tux: 'Linux即将推出',
+        },
+
         Button: {
             about: {
-                icon: me, 
+                icon: me,
                 title: '关于',
                 content: '关于的内容',
             },
             contact: {
-                icon: contact, 
+                icon: contact,
                 title: '联系',
                 content: '联系的内容',
             },
             archives: {
-                icon: folder, 
+                icon: folder,
                 title: '档案',
                 content: '档案的内容',
             },
             settings: {
-                icon: sett, 
+                icon: sett,
                 title: '设置',
-                contentIP: '您的IP地址是',
+                contentIP: '您的IP地址是 : ',
+                contentLang: '网站配置为以下语言 :',
                 contentDarkmode: '档案的内容',
                 contentCookies: '档案的内容',
                 contentCSS: '禁用CSS',
             },
         },
     },
-    
+
 
 };
 
