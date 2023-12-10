@@ -421,8 +421,8 @@ input:checked+.slider:before {
 
 @media (max-width: 768px) {
 
-  .a {
-    padding: 5px 15px 6px 15px;
+  a {
+    padding: 5px 15px 6px 15px!important; 
   }
 
   .modal-content {
@@ -451,4 +451,7 @@ input:checked+.slider:before {
     font-size: 12px;
   }
 
+  .sub-p{
+    margin-left: 1rem;
+  }
 }

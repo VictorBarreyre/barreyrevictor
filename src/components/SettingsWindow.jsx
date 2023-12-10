@@ -36,6 +36,9 @@ const SettingsWindow = ({ windowKey }) => {
     const [language, setLanguage] = useState(windowData[windowKey]?.language);
     let highestZIndex = 10;
 
+    const darkmodeValue = !isDarkMode ? windowData[windowKey]?.contentDarkmode : windowData[windowKey]?.contentClearmode;
+    const cookieValue = AreCookiesAccepted ? windowData[windowKey]?.contentCookies : windowData[windowKey]?.contentNoCookies;
+    const cssValue = isCssSet ? windowData[windowKey]?.contentCSS : windowData[windowKey]?.contentNoCSS;
 
     const textRef = useRef(null);
     const titleHeight = 50;
@@ -177,14 +180,14 @@ const SettingsWindow = ({ windowKey }) => {
                         </select>
                     </div>
                     <div className='flex-settings darkmode'>
-                        <p className='setting-p'>{windowData[windowKey]?.contentDarkmode} </p>
+                        <p className='setting-p'>{darkmodeValue} </p>
                         <label className="switch">
                             <input type="checkbox" checked={isDarkMode} onChange={toggleDarkMode} />
                             <span className="slider round"></span>
                         </label>
                     </div>
                     <div className='flex-settings cookies'>
-                        <p className='setting-p'>{windowData[windowKey]?.contentCookies} </p>
+                        <p className='setting-p'>{cookieValue} </p>
                         <label className="switch">
                             <input type="checkbox" checked={AreCookiesAccepted} onChange={toggleCookies} />
                             <span className="slider round"></span>
@@ -192,7 +195,7 @@ const SettingsWindow = ({ windowKey }) => {
                     </div>
 
                     <div className='flex-settings css'>
-                        <p className='setting-p'>{windowData[windowKey]?.contentCSS} </p>
+                        <p className='setting-p'>{cssValue} </p>
                         <label className="switch">
                             <input type="checkbox" checked={isCssSet} onChange={switchCss} />
                             <span className="slider round"></span>

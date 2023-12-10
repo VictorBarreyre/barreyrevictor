@@ -5,7 +5,7 @@ const WindowContext = createContext();
 
 
 export const WindowProvider = ({ children }) => {
-  const [theme, setTheme] = useState('default');
+
   const [openWindows, setOpenWindows] = useState({});
   const [windowData, setWindowData] = useState({});
   const [language, setLanguage] = useState('fr');
@@ -14,9 +14,6 @@ export const WindowProvider = ({ children }) => {
   const [isCssSet, setIsCSSSet] = useState(true)
 
 
-  const toggleTheme = () => {
-    setTheme(theme === 'default' ? 'win98' : 'default');
-  };
 
 
   const toggleWindow = (windowKey) => {
