@@ -1,6 +1,6 @@
-
 .disable-css * {
-  all: unset; /* 'all: unset' peut être utilisé pour annuler tous les styles hérités et natifs */
+  all: unset;
+  /* 'all: unset' peut être utilisé pour annuler tous les styles hérités et natifs */
 }
 
 
@@ -10,39 +10,41 @@
 }
 
 
-ul{
+ul {
   padding-left: 2rem;
 }
 
-li{
+li {
   margin-bottom: 0.4rem;
 }
 
-.flex-logo{
+.flex-logo {
   display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: fit-content;
-    position: fixed;
-    margin-top: 5rem;
-    
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  position: fixed;
+  margin-top: 5rem;
+
 }
 
-.flexsinglelogo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2rem;
+.flexsinglelogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
 
-.logo-desk{
+.logo-desk {
   box-shadow: none;
   background: none;
 }
 
 
-.os{font-size:10px}
+.os {
+  font-size: 10px
+}
 
 
 .modal {
@@ -130,7 +132,7 @@ li{
 }
 
 
-.sub-info-sup{
+.sub-info-sup {
   display: flex;
   flex-direction: column;
   padding-right: 2.5rem;
@@ -165,7 +167,7 @@ li{
   align-items: center;
   margin-right: 1vw;
   background-color: rgba(234, 236, 231, 0.1);
-  
+
 }
 
 .active {
@@ -356,9 +358,9 @@ input:checked+.slider:before {
   margin-left: 0.3rem;
 }
 
-.default-link{
+.default-link {
   box-shadow: none;
-    padding: 0;
+  padding: 0;
 }
 
 
@@ -371,13 +373,13 @@ input:checked+.slider:before {
   min-height: 100vh;
 }
 
-.content-nocss{
+.content-nocss {
   width: fit-content;
   margin-top: 5rem;
   margin-left: 15rem;
 }
 
-.nocss a{
+.nocss a {
   font-family: Times, "Times New Roman", serif;
   background: none;
   all: unset;
@@ -402,14 +404,14 @@ input:checked+.slider:before {
 
 .nocss p {
   line-height: 1.4;
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .nocss div {
   margin-bottom: 1em;
 }
 
-.sub-p{
+.sub-p {
   font-size: 10px;
   font-weight: 200;
   margin-left: 2rem;
@@ -419,32 +421,34 @@ input:checked+.slider:before {
 
 @media (max-width: 768px) {
 
-  
+  .a {
+    padding: 5px 15px 6px 15px;
+  }
 
   .modal-content {
     width: 85vw;
   }
 
-  .footer-img{
+  .footer-img {
     display: none;
   }
 
-  .left-down{
+  .left-down {
+    padding: 5px 15px 6px 15px;
+    font-size: 12px;
+  }
+
+  .window {
+    height: auto !important;
+  }
+
+  .time {
+    font-size: 12px;
+  }
+
+  .btn-modal {
     padding: 4px 15px 5px 15px;
-  font-size: 12px;
-}
-
-.window{
-  height: auto !important;
-}
-
-.time{
-  font-size: 12px;
-}
-
-.btn-modal {
-  padding: 4px 15px 5px 15px;
-  font-size: 12px;
-}
+    font-size: 12px;
+  }
 
 }
