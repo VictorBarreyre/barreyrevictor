@@ -416,6 +416,28 @@ input:checked+.slider:before {
   margin-top: 0.5rem;
 }
 
+.sub-info-sub{
+  display: flex;
+  justify-content: end;
+}
+
+.sub-p-down{
+  font-size: 10px;
+    font-weight: 200;
+    margin-top: 0.5rem;
+}
+
+.sub-p-down{
+  opacity: 30%;
+  padding-right: 2.5rem;
+  padding-bottom: 1rem;
+}
+
+.sub-p-down:hover{
+  opacity: 100%;
+}
+
+
 
 @media (max-width: 768px) {
 
@@ -454,5 +476,9 @@ input:checked+.slider:before {
     margin-left: 0.5rem;
   }
 
+
+.sub-p-down{
+  padding-right: 0.5rem;
+}
 
 }

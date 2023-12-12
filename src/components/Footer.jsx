@@ -22,9 +22,12 @@ const Footer = () => {
   };
 
 
+
   return (
     <div className='info-sup'>
-     
+      <div className='sub-info-sub'>
+        <p className='sub-p-down'>{data[language].Quote.design}</p>
+      </div>
       <div className='flex-down-left'>
         {Object.keys(Button).map((id) => (
           <button
@@ -37,7 +40,7 @@ const Footer = () => {
           </button>
         ))}
       </div>
-      
+
     </div>
   );
 };
