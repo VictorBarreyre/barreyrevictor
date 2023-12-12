@@ -102,8 +102,6 @@ li {
 }
 
 
-
-
 .flex-top-down {
   display: flex;
   justify-content: space-between;
@@ -136,7 +134,8 @@ li {
   display: flex;
   flex-direction: column;
   padding-right: 2.5rem;
-  padding-top: 1rem;
+  padding-top: 2rem;
+  margin-left: 2rem;
 }
 
 .flex-down-left {
@@ -414,7 +413,6 @@ input:checked+.slider:before {
 .sub-p {
   font-size: 10px;
   font-weight: 200;
-  margin-left: 2rem;
   margin-top: 0.5rem;
 }
 
@@ -451,7 +449,10 @@ input:checked+.slider:before {
     font-size: 12px;
   }
 
-  .sub-p{
-    margin-left: 1rem;
+  .sub-info-sup{
+    margin-top: 1rem;
+    margin-left: 0.5rem;
   }
+
+
 }

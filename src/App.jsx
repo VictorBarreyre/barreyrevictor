@@ -11,8 +11,7 @@ import NoCss from './components/NoCss';
 
 function App() {
 
-  const {isCssSet} = useWindowContext();
-  const [consentGiven, setConsentGiven] = useState(false);
+  const {isCssSet, AreCookiesAccepted} = useWindowContext();
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
   useEffect(() => {
@@ -21,28 +20,16 @@ function App() {
     };
 
     window.addEventListener('resize', handleResize);
-
-    // Nettoyer l'event listener quand le composant est démonté ou redimensionné
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   
-  useEffect(() => {
-    const consent = localStorage.getItem('userConsent');
-    setConsentGiven(consent === 'true');
-  }, []);
-
-  const handleConsentChange = (consent) => {
-    localStorage.setItem('userConsent', consent);
-    setConsentGiven(consent);
-  };
-
   
 
   return (
     isCssSet ? (
       <div className='app'>
-        {!consentGiven && <ConsentModal onConsentChange={handleConsentChange} />}
+        {!AreCookiesAccepted && <ConsentModal />}
         <Router>
           <div className='flex-top-down'style={{ height: `${windowHeight}px` }}>
             <Header />

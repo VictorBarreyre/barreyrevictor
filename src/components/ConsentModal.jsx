@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
+import { useWindowContext } from '../Context';
+
 
 const ConsentModal = () => {
   const [showModal, setShowModal] = useState(true);
-  const [userConsent, setUserConsent] = useState(false);
+  const {AreCookiesAccepted, setAreCookiesAccepted} = useWindowContext();
 
   const handleConsent = () => {
-    setUserConsent(true);
+    setAreCookiesAccepted(true);
     setShowModal(false);
+console.log(AreCookiesAccepted)
   };
-
+  
   const handleDeny = () => {
-    setUserConsent(false);
+    setAreCookiesAccepted(false);
     setShowModal(false);
+    console.log(AreCookiesAccepted)
   };
+  
 
   if (!showModal) return null;
 

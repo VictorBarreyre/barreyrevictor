@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { useState, createContext, useContext,useEffect } from 'react';
 import data from './components/data';
 
 const WindowContext = createContext();
@@ -10,11 +10,11 @@ export const WindowProvider = ({ children }) => {
   const [windowData, setWindowData] = useState({});
   const [language, setLanguage] = useState('fr');
   const [isDarkMode, setIsDarkmode] = useState(false)
-  const [AreCookiesAccepted, setAreCookiesAccepted] = useState(false)
   const [isCssSet, setIsCSSSet] = useState(true)
-
-
-
+  const [AreCookiesAccepted, setAreCookiesAccepted] = useState(
+    localStorage.getItem('userConsent') === 'true'
+  );
+  
 
   const toggleWindow = (windowKey) => {
     setOpenWindows(prevWindows => ({
@@ -46,6 +46,7 @@ export const WindowProvider = ({ children }) => {
 
   const toggleCookies = () => {
     setAreCookiesAccepted(!AreCookiesAccepted)
+    console.log(AreCookiesAccepted)
   }
 
   const switchCss = () => {
@@ -53,6 +54,10 @@ export const WindowProvider = ({ children }) => {
   }
 
 
+  useEffect(() => {
+    localStorage.setItem('userConsent', AreCookiesAccepted);
+  }, [AreCookiesAccepted]);
+  
 
   return (
     <WindowContext.Provider value={{
@@ -64,6 +69,7 @@ export const WindowProvider = ({ children }) => {
       changeLanguage,
       isDarkMode,
       toggleDarkMode,
+      setAreCookiesAccepted,
       AreCookiesAccepted,
       toggleCookies,
       isCssSet,

@@ -7,7 +7,7 @@ import { useWindowContext } from '../Context';
 
 const Header = () => {
 
-  const { language } = useWindowContext();
+  const { language, AreCookiesAccepted } = useWindowContext();
   const headerData = data[language].Header;
 
   const [ipAddress, setIpAddress] = useState('');
@@ -21,9 +21,7 @@ const Header = () => {
       .then(data => {  
         setIpAddress(data.ip);
         setLocation({ country: data.location?.country, region: data.location?.region });
-        setFourni(data.isp)
-        console.log(data.isp)
-      
+        setFourni(data.isp);      
       })
       .catch(error => console.error('Erreur lors de la récupération de l’adresse IP:', error));
   }, []);
@@ -46,12 +44,18 @@ const Header = () => {
         <Time/>
         <NavLink to="/google" activeClassName="active-link">{headerData.go}</NavLink>      
         </div>
+   
+        {AreCookiesAccepted && (
+          
         <div className='sub-info-sup'>
+               <h2 className='windowh2'>Ce que l'on sait sur vous : </h2>
         <p className='sub-p'>{data[language].Button.settings.contentIP}{ipAddress} </p>
         <p className='sub-p'>{data[language].Button.settings.contentLocation} {location.country}, {location.region} </p>
         <p className='sub-p'>{data[language].Button.settings.contentFourni} {fourni}</p>
         <p className='sub-p'>{data[language].Button.settings.contentLang} {languageNames[language]} </p>
       </div>
+
+      )}
   </div>
   );
 }
