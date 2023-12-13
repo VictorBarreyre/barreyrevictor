@@ -161,7 +161,14 @@ const SettingsWindow = ({ windowKey }) => {
 
 
     return (
-        <div className='window' onMouseDown={onStart} onMouseMove={onMove} onMouseUp={onEnd} onTouchStart={onStart} onTouchMove={onMove} onTouchEnd={onEnd} style={{ left: `${position.x}px`, top: `${position.y}px`, width: `${size.width}px`, height: `${size.height}px`, position: 'absolute' }}>
+        <div className='window' 
+        onMouseDown={onStart} 
+        onMouseMove={onMove} 
+        onMouseUp={onEnd} 
+        onTouchStart={onStart} 
+        onTouchMove={onMove} 
+        onTouchEnd={onEnd} 
+        style={{ left: `${position.x}px`, top: `${position.y}px`, width: `${size.width}px`, height: `${size.height}px`, position: 'absolute', zIndex: openWindows[windowKey]?.zIndex || 1 }}>
             <div className='flex-window-title' >
                 <img className='win-img' src={windowData[windowKey]?.icon} alt={windowData[windowKey]?.title} />
                 <h2 className='windowh2'>{windowData[windowKey]?.title}</h2>

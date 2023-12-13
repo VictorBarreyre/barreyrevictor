@@ -42,7 +42,7 @@ const Header = () => {
       <div className="flex-up">
         <NavLink to="/" className={({ isActive }) => isActive ? "active-link" : ""}> {headerData.title}</NavLink>
         <Time />
-        <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" activeClassName="active-link">{headerData.go}</a>
+        <NavLink to="https://www.google.com" target="_blank" rel="noopener noreferrer" className={({ isActive }) => isActive ? "active-link" : ""}>{headerData.go}</NavLink>
       </div>
 
       {AreCookiesAccepted ? (
@@ -52,15 +52,15 @@ const Header = () => {
           <p className='sub-p'>{data[language].Button.settings.contentLocation} {location.country}, {location.region} </p>
           <p className='sub-p'>{data[language].Button.settings.contentFourni} {fourni}</p>
           <p className='sub-p'>{data[language].Button.settings.contentLang} {languageNames[language]} </p>
-        </div> 
+        </div>
       ) : (
-        <div className='sub-info-sup'> 
-         <h2 className='windowh2'>{headerData.cekonsait}</h2>
-         <p className='sub-p'>{data[language].Button.settings.contentRien} </p>
+        <div className='sub-info-sup'>
+          <h2 className='windowh2'>{headerData.cekonsait}</h2>
+          <p className='sub-p'>{data[language].Button.settings.contentRien} </p>
         </div>
       )
-      
-      
+
+
       }
     </div>
   );

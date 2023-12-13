@@ -12,10 +12,12 @@
 
 ul {
   padding-left: 2rem;
+  list-style: circle;
+  margin: 0;
 }
 
 li {
-  margin-bottom: 0.4rem;
+  margin-top: 0.4rem;
 }
 
 .flex-logo {
@@ -350,7 +352,7 @@ input:checked+.slider:before {
   width: -webkit-fill-available;
   justify-content: space-between;
   align-items: center;
-  margin-top: 0.6rem;
+  margin-top: 0.4rem;
 }
 
 .setting-p {
@@ -359,8 +361,10 @@ input:checked+.slider:before {
 
 .default-link {
   box-shadow: none;
-  padding: 0;
+  background: none;
+  padding: 0!important;
 }
+
 
 
 .nocss {
@@ -413,7 +417,7 @@ input:checked+.slider:before {
 .sub-p {
   font-size: 10px;
   font-weight: 200;
-  margin-top: 0.5rem;
+  margin-top: 0.4em;
 }
 
 .sub-info-sub{
@@ -440,6 +444,10 @@ input:checked+.slider:before {
 
 
 @media (max-width: 768px) {
+
+  li{
+    margin-bottom: 0.5rem;
+  }
 
   a {
     padding: 5px 15px 6px 15px!important; 

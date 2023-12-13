@@ -11,19 +11,40 @@ export const WindowProvider = ({ children }) => {
   const [language, setLanguage] = useState('fr');
   const [isDarkMode, setIsDarkmode] = useState(false)
   const [isCssSet, setIsCSSSet] = useState(true)
+  const [highestZIndex, setHighestZIndex] = useState(10);
   const [AreCookiesAccepted, setAreCookiesAccepted] = useState(
     localStorage.getItem('userConsent') === 'true'
   );
   
 
-  const toggleWindow = (windowKey) => {
-    setOpenWindows(prevWindows => ({
-      ...prevWindows,
-      [windowKey]: !prevWindows[windowKey]
+  
 
-    }));
+const toggleWindow = (windowKey) => {
+  setOpenWindows(prevWindows => {
+      // Si la fenêtre est déjà ouverte, on la ferme.
+      if (prevWindows[windowKey]) {
+          return {
+              ...prevWindows,
+              [windowKey]: false
+          };
+      }
 
-  };
+      // Calcul du z-index le plus élevé parmi les fenêtres ouvertes.
+      const zIndices = Object.values(prevWindows).map(w => w.zIndex || 0);
+      const highestZIndex = zIndices.length > 0 ? Math.max(...zIndices) : 0;
+
+      return {
+          ...prevWindows,
+          [windowKey]: {
+              isOpen: true,
+              zIndex: highestZIndex + 1
+          }
+      };
+  });
+};
+
+
+  
 
   const setWindowContent = (windowKey, data) => {
     setWindowData(prevData => ({

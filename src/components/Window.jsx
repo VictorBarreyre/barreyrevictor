@@ -83,10 +83,8 @@ const Window = ({ windowKey }) => {
             setIsDragging(true);
             
             resetAllWindowsZIndex();
-
             const currentWindow = e.currentTarget; 
             setZIndexForWindow(currentWindow, highestZIndex);
-
             highestZIndex++;
         }
     };
@@ -137,9 +135,9 @@ const Window = ({ windowKey }) => {
       }, [size, titleHeight, windowContent]);
       
 
-
     const onClick = () => {
         handleCloseClick(windowKey);
+        console.log(onClick)
     };
 
     if (!openWindows[windowKey]) {
@@ -147,14 +145,21 @@ const Window = ({ windowKey }) => {
     }
 
     return (
-        <div className='window' onMouseDown={onStart} onMouseMove={onMove} onMouseUp={onEnd} onTouchStart={onStart} onTouchMove={onMove} onTouchEnd={onEnd} style={{ left: `${position.x}px`, top: `${position.y}px`, width: `${size.width}px`, height: `${size.height}px`, position: 'absolute' }}>
+        <div className='window' 
+        onMouseDown={onStart} 
+        onMouseMove={onMove} 
+        onMouseUp={onEnd} 
+        onTouchStart={onStart} 
+        onTouchMove={onMove} 
+        onTouchEnd={onEnd} 
+        style={{ left: `${position.x}px`, top: `${position.y}px`, width: `${size.width}px`, height: `${size.height}px`, position: 'absolute', zIndex: openWindows[windowKey]?.zIndex || 1 }}>
             <div className='flex-window-title' >
                 <img className='win-img' src={windowData[windowKey]?.icon} alt={windowData[windowKey]?.title} />
                 <h2 className='windowh2'>{windowData[windowKey]?.title}</h2>
                 <img className='footer-img-cross' src={close} alt="Cross" onClick={onClick} />
             </div>
             <div className='flex-window-body' style={{ flex: 1 }}>
-                <p ref={textRef}>{windowContent}</p>
+                <div ref={textRef}>{windowContent}</div>
             </div>
             <div className='resize-handle' />
         </div>
