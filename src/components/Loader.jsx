@@ -28,6 +28,20 @@ const Loader = () => {
         setTextElements(elements);
     }, []);
 
+    const handleTouchMove = (event) => {
+        const touches = event.touches[0];
+        if (touches) {
+            textElements.forEach((el, index) => {
+                const domNode = document.elementFromPoint(touches.clientX, touches.clientY);
+                if (domNode && domNode.key === `bv-text ${index}`) {
+                    setTextElements(prevElements =>
+                        prevElements.map((el, idx) => (idx === index ? { ...el, hidden: true } : el))
+                    );
+                }
+            });
+        }
+    };
+
     const handleMouseOver = (id) => {
         setTextElements(prevElements =>
             prevElements.map(el => (el.id === id ? { ...el, hidden: true } : el))
@@ -42,9 +56,7 @@ const Loader = () => {
                     className={`bv-text ${el.hidden ? 'hidden' : ''}`}
                     style={el.style}
                     onMouseOver={() => handleMouseOver(el.id)}
-                    onTouchStart={() => handleInteraction(el.id)}
-
-
+                    onTouchMove={handleTouchMove}
                 >
                     BV/
                 </span>
