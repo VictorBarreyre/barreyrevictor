@@ -10,6 +10,32 @@
 }
 
 
+.text-container-loader {
+  background-color: #F0F0F3;
+  width: 101vw;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+}
+
+
+
+
+.bv-text {
+  position: absolute;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  font-size: 16px; 
+ font-weight: 100;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+
+
 ul {
   padding-left: 2rem;
   list-style: circle;

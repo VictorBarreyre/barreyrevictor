@@ -7,6 +7,7 @@ import Desk from './components/root/Desk';
 import ConsentModal from './components/ConsentModal';
 import { useWindowContext } from './Context';
 import NoCss from './components/NoCss';
+import Loader from './components/Loader';
 
 
 function App() {
@@ -30,10 +31,12 @@ function App() {
     isCssSet ? (
       <div className='app'>
         {!AreCookiesAccepted && <ConsentModal />}
+        <Loader />
         <Router>
           <div className='flex-top-down'style={{ height: `${windowHeight}px` }}>
             <Header />
             <Routes>
+          
               <Route path="/" element={<Desk />} />
             </Routes>
             <Footer />
