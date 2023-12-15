@@ -93,7 +93,7 @@ li {
   justify-content: center;
   align-items: center;
   background: none;
-  pointer-events: none;
+  pointer-events: none; /*a enlever pr accepter ou refuser */
 }
 
 .modal-content {
@@ -486,6 +486,15 @@ input:checked+.slider:before {
 
 
 @media (max-width: 768px) {
+
+  .centered-modal-p {
+    width: max-content;
+    padding: 0rem 0.4rem;
+    text-align: center;
+    background-color: #f0f0f3;
+    border-radius: 30px;
+    line-height: 20px;
+}
 
   li{
     margin-bottom: 0.5rem;
