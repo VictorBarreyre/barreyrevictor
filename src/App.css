@@ -7,34 +7,41 @@
 #root {
   overflow-y: hidden;
   overflow-x: hidden;
+  cursor: all-scroll;
 }
 
 
+
 .text-container-loader {
+  position: relative;
   background-color: #F0F0F3;
   width: 101vw;
   height: 100vh;
   overflow: hidden;
   position: fixed;
-  top: 0;
+  z-index: 10;
+  padding: 1rem;
+  top: -7.4px;
 }
-
-
 
 
 .bv-text {
   position: absolute;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.1s ease;
   cursor: pointer;
-  font-size: 16px; 
- font-weight: 100;
+  font-size: 12px; 
+  font-weight: 400;
+  
 }
 
 .hidden {
   opacity: 0;
 }
 
-
+.loader-btn{
+  display: flex;
+  z-index: 100;
+}
 
 ul {
   padding-left: 2rem;
@@ -76,14 +83,17 @@ li {
 
 
 .modal {
+  z-index: 11;
   position: fixed;
   left: 0;
-  width: 100%;
-  height: 102vh;
+  right: 0;
+  top: 0;
+  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.1);
+  background: none;
+  pointer-events: none;
 }
 
 .modal-content {
@@ -91,26 +101,32 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 35vw;
-  padding: 1rem;
-  border-radius: 10px;
-  background: #F0F0F3;
-  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.modalh2{
+  display: none;
+  padding: 0.5rem;
+  background-color: #F0F0F3;
+  border-radius: 30px;
 }
 
 .centered-modal-p {
+  width: max-content;
+  padding: 0rem 0.4rem;
   text-align: center;
-  padding: 1rem 2rem;
+  background-color: #F0F0F3;
+  border-radius: 30px;
+  line-height: 20px;
 }
 
 .center-modal-button {
   display: flex;
   justify-content: space-between;
-  width: 70%;
+  border-radius: 30px;
 }
 
 .btn-modal {
-  margin: 1rem;
+  margin: 0.5rem;
   flex-grow: 1;
 }
 

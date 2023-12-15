@@ -74,7 +74,6 @@ const toggleWindow = (windowKey) => {
     setIsCSSSet(!isCssSet)
   }
 
-
   useEffect(() => {
     localStorage.setItem('userConsent', AreCookiesAccepted);
   }, [AreCookiesAccepted]);

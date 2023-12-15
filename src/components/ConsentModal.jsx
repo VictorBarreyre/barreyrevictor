@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useWindowContext } from '../Context';
+import data from './data';
 
 
 const ConsentModal = () => {
   const [showModal, setShowModal] = useState(true);
-  const {AreCookiesAccepted, setAreCookiesAccepted} = useWindowContext();
-
+  const {AreCookiesAccepted, setAreCookiesAccepted, language} = useWindowContext();
+  const modalData = data[language].Modal;
+  
   const handleConsent = () => {
     setAreCookiesAccepted(true);
     setShowModal(false);
@@ -24,11 +26,11 @@ console.log(AreCookiesAccepted)
   return (
     <div className="modal">
       <div className="modal-content">
-        <h2 className='windowh2'>Consentement des Cookies</h2>
-        <p className='centered-modal-p'>Nous utilisons des cookies pour améliorer votre expérience. Pouvons-nous continuer à utiliser vos données, y compris votre adresse IP?</p>
+        <h2 className='windowh2 modalh2'>Cookies</h2>
+        {modalData.content}
        <div className='center-modal-button'>
-        <button className='btn-modal' onClick={handleConsent}>J'accepte</button>
-        <button className='btn-modal' onClick={handleDeny}>Je refuse</button>
+        <button className='btn-modal' onClick={handleConsent}>{modalData.accept}</button>
+        <button className='btn-modal' onClick={handleDeny}>{modalData.refuse}</button>
         </div>
       </div>
     </div>

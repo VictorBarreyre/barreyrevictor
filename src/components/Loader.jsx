@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useWindowContext } from '../Context';
+import ConsentModal from './ConsentModal';
 
 const Loader = () => {
     const [textElements, setTextElements] = useState([]);
+    const {AreCookiesAccepted} = useWindowContext();
+
 
     useEffect(() => {
         const elements = [];
-        const screenWidth = window.innerWidth;
-        const screenHeight = window.innerHeight;
-        const textWidth = 25;
-        const textHeight = 25;
+        const screenWidth = window.innerWidth +100;
+        const screenHeight = window.innerHeight +100;
+        const textWidth = 20;
+        const textHeight = 20;
 
         const columns = Math.floor(screenWidth / textWidth);
         const rows = Math.floor(screenHeight / textHeight);
@@ -34,6 +38,8 @@ const Loader = () => {
     };
 
     return (
+        <> 
+        <ConsentModal/> 
         <div
             className="text-container-loader"
             onTouchMove={(event) => {
@@ -41,12 +47,12 @@ const Loader = () => {
                 const x = touch.clientX;
                 const y = touch.clientY;
                 const touchedElement = document.elementFromPoint(x, y);
-
                 if (touchedElement && touchedElement.dataset.id) {
                     handleInteraction(touchedElement.dataset.id);
                 }
             }}
         >
+            <div className="text-container-behind"> 
             {textElements.map(el => (
                 <span
                     key={el.id}
@@ -55,10 +61,14 @@ const Loader = () => {
                     style={el.style}
                     onMouseOver={() => handleInteraction(el.id)}
                 >
-                    BV/
+                    bv/
                 </span>
             ))}
+            </div>
         </div>
+
+        
+        </>
     );
 };
 
