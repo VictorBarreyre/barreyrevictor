@@ -30,7 +30,7 @@ function App() {
   return (
     isCssSet ? (
       <div className='app'>
-        {!AreCookiesAccepted && <ConsentModal />}
+      
         <Loader />
         <Router>
           <div className='flex-top-down'style={{ height: `${windowHeight}px` }}>
