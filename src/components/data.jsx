@@ -45,28 +45,34 @@ const data = {
                         Pour enrichir votre expérience sur notre site,
                     </p>
                     <p className='centered-modal-p'>
-                        nous avons besoin de votre accord pour utiliser votre adresse IP
+                        nous avons besoin de votre accord pour utiliser
                     </p>
                     <p className='centered-modal-p'>
-                        ainsi que votre localisation géographique à des fins ludiques.
+                        votre adresse IP ainsi que
                     </p>
                     <p className='centered-modal-p'>
-                        Ces informations ne sont pas stockées ni utilisées pour le suivi.
+                        votre localisation géographique à des fins ludiques. 
+                    </p>
+                    <p className='centered-modal-p'>
+                        Ces informations ne sont pas stockées 
+                    </p>
+                    <p className='centered-modal-p'>
+                        ni utilisées pour le suivi.
                     </p>
                     <p className='centered-modal-p'>
                         Vous pouvez retirer ce consentement à tout moment.
                     </p>
                     <p className='centered-modal-p'>
-                        En cliquant sur "Accepter",
-                    </p>
-                    <p className='centered-modal-p'>
                         vous permettez l'affichage de ces informations
                     </p>
                     <p className='centered-modal-p'>
-                        pour une expérience personnalisée.
+                        pour une expérience personnalisée. 
                     </p>
                     <p className='centered-modal-p'>
-                        Si vous refusez, certaines fonctionnalités ne seront pas disponibles.
+                    Si vous refusez,
+                    </p>
+                    <p className='centered-modal-p'>
+                    certaines fonctionnalités ne seront pas disponibles.
                     </p>
                 </>
             ),
