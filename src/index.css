@@ -134,17 +134,3 @@ line-height: 1.3rem;
   }
 
 }
-
-
-
-@media (max-width: 768px) {
-
-  .centered-modal-p {
-    padding: 0rem 0.4rem;
-    text-align: center;
-    background-color: #f0f0f3;
-    border-radius: 30px;
-    line-height: 20px;
-    font-size: 12px !important;
-}
-}
