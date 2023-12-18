@@ -486,6 +486,10 @@ input:checked+.slider:before {
 
 @media (max-width: 768px) {
 
+  .modal {
+    top: 0px;
+  }
+
   .centered-modal-p {
     padding: 0rem 0.4rem;
     text-align: center;
