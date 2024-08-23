@@ -1,5 +1,5 @@
-import React, { useState, useEffect} from 'react'
-import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer';
@@ -7,12 +7,11 @@ import Desk from './components/root/Desk';
 import ConsentModal from './components/ConsentModal';
 import { useWindowContext } from './Context';
 import NoCss from './components/NoCss';
-import Loader from './components/Loader';
 
 
 function App() {
 
-  const {isCssSet, AreCookiesAccepted} = useWindowContext();
+  const { isCssSet, AreCookiesAccepted } = useWindowContext();
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
   useEffect(() => {
@@ -24,16 +23,17 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  
+  useEffect(() => {
+    localStorage.setItem('userConsent', AreCookiesAccepted ? 'true' : 'false');
+  }, [AreCookiesAccepted]);
   
 
   return (
     isCssSet ? (
       <div className='app'>
-      
-        <Loader />
+        {!AreCookiesAccepted && <ConsentModal />}
         <Router>
-          <div className='flex-top-down'style={{ height: `${windowHeight}px` }}>
+          <div className='flex-top-down' style={{ height: `${windowHeight}px` }}>
             <Header />
             <Routes>
               <Route path="/" element={<Desk />} />

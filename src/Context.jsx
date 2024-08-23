@@ -12,8 +12,9 @@ export const WindowProvider = ({ children }) => {
   const [isDarkMode, setIsDarkmode] = useState(false)
   const [isCssSet, setIsCSSSet] = useState(true)
   const [highestZIndex, setHighestZIndex] = useState(10);
+  const [showModal, setShowModal] = useState('false') 
   const [AreCookiesAccepted, setAreCookiesAccepted] = useState(
-    localStorage.getItem('userConsent') === 'true'
+    localStorage.getItem('userConsent') !== null
   );
   
 
@@ -66,9 +67,27 @@ const toggleWindow = (windowKey) => {
   }
 
   const toggleCookies = () => {
-    setAreCookiesAccepted(!AreCookiesAccepted)
-    console.log(AreCookiesAccepted)
-  }
+    setAreCookiesAccepted((prev) => {
+      const newValue = !prev;
+      if (!newValue) {
+        setShowModal(true); // Afficher la modale si les cookies sont refusés
+      }
+      return newValue;
+    });
+    console.log(AreCookiesAccepted);
+  };
+
+  const handleConsentCookies = () => {
+    setAreCookiesAccepted(true);
+    console.log('Consent given');
+    setShowModal(false);
+  };
+
+  const handleDenyCookies = () => {
+    setAreCookiesAccepted(false);
+    console.log('Consent denied');
+    setShowModal(false);
+  };
 
   const switchCss = () => {
     setIsCSSSet(!isCssSet)
@@ -92,8 +111,11 @@ const toggleWindow = (windowKey) => {
       setAreCookiesAccepted,
       AreCookiesAccepted,
       toggleCookies,
+      handleConsentCookies,
+      handleDenyCookies,
       isCssSet,
-      switchCss
+      switchCss,
+      showModal
     }}>
       {children}
     </WindowContext.Provider>

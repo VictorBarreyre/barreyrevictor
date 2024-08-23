@@ -25,7 +25,8 @@ const SettingsWindow = ({ windowKey }) => {
         AreCookiesAccepted,
         toggleCookies,
         isCssSet,
-        switchCss } = useWindowContext();
+        switchCss,
+        showModal } = useWindowContext();
     const [windowContent, setWindowContent] = useState('');
     const [isDragging, setIsDragging] = useState(false);
     const [isResizing, setIsResizing] = useState(false);
